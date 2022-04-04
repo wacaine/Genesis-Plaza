@@ -2,6 +2,8 @@
 
 _A few screenshots of Genesis Plaza._
 
+TEST
+
 ![screenshots](https://github.com/decentraland-scenes/Genesis-Plaza/blob/master/screenshots/genesis-plaza-final.jpg)
 
 ## Description
