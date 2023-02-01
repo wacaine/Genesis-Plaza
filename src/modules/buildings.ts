@@ -320,6 +320,28 @@ export function addBuildings() {
     })
   )
   engine.addEntity(street)
+
+
+
+ //add vogu_pod
+ let vogu_pod = new Entity()
+ vogu_pod.addComponent(new GLTFShape('models/vogu_pod.glb'))
+ vogu_pod.addComponent(
+   new Transform({
+     rotation: Quaternion.Euler(0, 180, 0),
+   })
+ )
+ engine.addEntity(vogu_pod)
+
+ vogu_pod.addComponent(new OnPointerDown(
+	 ()=>{
+		 openExternalURL("https://assembly.thevogu.io/ ")
+	 },{
+		 hoverText: "Visit VOGU site", button: ActionButton.PRIMARY
+	 }
+ ))
+
+
 }
 
 //add zepellin

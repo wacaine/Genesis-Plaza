@@ -29,6 +29,8 @@ export let userData: UserData = {
   publicKey: '',
   hasConnectedWeb3: false,
   userId: '',
+  avatar: null,
+  version: null,
 }
 
 export async function fetchUserData() {
@@ -56,34 +58,34 @@ export async function addBarNPCs() {
       if (octopus.getComponent(NPCTriggerComponent).onCameraEnter) {
         octopus.getComponent(NPCTriggerComponent).onCameraEnter = undefined
       }
-      if (
-        questProg.progressStatus != ProgressStatus.COMPLETED &&
-        query(questProg).isTaskCompleted(taskIds.intro)
-      ) {
-        if (!query(questProg).isTaskCompleted(taskIds.catHair)) {
-          octopus.talk(OctoQuest, 'noHairs')
-        } else if (!query(questProg).isTaskCompleted(taskIds.bringHair)) {
-          octopus.talk(OctoQuest, 'quest2')
-        } else if (
-          !query(questProg).isTaskCompleted(taskIds.asianHerb) ||
-          !query(questProg).isTaskCompleted(taskIds.forestHerb) ||
-          !query(questProg).isTaskCompleted(taskIds.medievalHerb)
-        ) {
-          octopus.talk(OctoQuest, 'noHerbs')
-        } else if (!query(questProg).isTaskCompleted(taskIds.bringHerbs)) {
-          octopus.talk(OctoQuest, 'quest3')
-        } else if (!query(questProg).isTaskCompleted(taskIds.caliz)) {
-          octopus.talk(OctoQuest, 'noCalis')
-        } else {
-          // has all ingredients
-          octopus.talk(OctoQuest, 'makeDrink')
-        }
-      } else {
-        // quest not started or ended
-        octopus.talk(OctoHi)
-      }
+      //   if (
+      //     questProg.progressStatus != ProgressStatus.COMPLETED &&
+      //     query(questProg).isTaskCompleted(taskIds.intro)
+      //   ) {
+      //     if (!query(questProg).isTaskCompleted(taskIds.catHair)) {
+      //       octopus.talk(OctoQuest, 'noHairs')
+      //     } else if (!query(questProg).isTaskCompleted(taskIds.bringHair)) {
+      //       octopus.talk(OctoQuest, 'quest2')
+      //     } else if (
+      //       !query(questProg).isTaskCompleted(taskIds.asianHerb) ||
+      //       !query(questProg).isTaskCompleted(taskIds.forestHerb) ||
+      //       !query(questProg).isTaskCompleted(taskIds.medievalHerb)
+      //     ) {
+      //       octopus.talk(OctoQuest, 'noHerbs')
+      //     } else if (!query(questProg).isTaskCompleted(taskIds.bringHerbs)) {
+      //       octopus.talk(OctoQuest, 'quest3')
+      //     } else if (!query(questProg).isTaskCompleted(taskIds.caliz)) {
+      //       octopus.talk(OctoQuest, 'noCalis')
+      //     } else {
+      //       // has all ingredients
+      //       octopus.talk(OctoQuest, 'makeDrink')
+      //     }
+      //   } else {
+      // quest not started or ended
+      octopus.talk(OctoHi)
+      //   }
 
-      if (arrow && arrow.getParent() == octopus) {
+      if (arrow && arrow.getParent() === octopus) {
         arrow.hide()
       }
 
@@ -412,7 +414,7 @@ export function addNPCsOutside() {
     'models/core_building/cat_guySittedV12.glb',
     () => {
       if (
-        questProg.progressStatus == ProgressStatus.ON_GOING &&
+        questProg.progressStatus === ProgressStatus.ON_GOING &&
         !query(questProg).isTaskCompleted(taskIds.catHair) &&
         query(questProg).isTaskCompleted(taskIds.intro)
       ) {
@@ -421,7 +423,7 @@ export function addNPCsOutside() {
         catGuy.talk(ILoveCats, 0)
       }
 
-      if (arrow && arrow.getParent() == catGuy) {
+      if (arrow && arrow.getParent() === catGuy) {
         arrow.hide()
       }
 
@@ -482,13 +484,13 @@ export let OctoHi: Dialog[] = [
     name: 'end',
     text: 'Oh well, if for any reason you need a hand and/or tentacle, I’ll be here!',
     triggeredByNext: () => {
-      if (!query(questProg).isTaskCompleted(taskIds.intro)) {
-        octopus.talk(OctoQuest, 'questQ')
-      } else {
-        octopus.endInteraction()
-        log('ended conversation')
-        backToIdle()
-      }
+      //   if (!query(questProg).isTaskCompleted(taskIds.intro)) {
+      //     octopus.talk(OctoQuest, 'questQ')
+      //   } else {
+      octopus.endInteraction()
+      log('ended conversation')
+      backToIdle()
+      //   }
     },
   },
   {
@@ -526,11 +528,11 @@ export let OctoHi: Dialog[] = [
 
     skipable: true,
     triggeredByNext: () => {
-      if (!query(questProg).isTaskCompleted(taskIds.intro)) {
-        octopus.talk(OctoQuest, 'questQ')
-      } else {
-        octopus.talk(OctoHi, 'normalEnd')
-      }
+      //   if (!query(questProg).isTaskCompleted(taskIds.intro)) {
+      //     octopus.talk(OctoQuest, 'questQ')
+      //   } else {
+      octopus.talk(OctoHi, 'normalEnd')
+      //   }
     },
   },
   {
