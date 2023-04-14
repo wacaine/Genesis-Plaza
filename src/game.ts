@@ -79,7 +79,8 @@ utils.addOneTimeTrigger(
   new utils.TriggerBoxShape(new Vector3(50, 25, 50), new Vector3(160, 10, 155)),
   {
     onCameraEnter: () => {
-      insideBar()
+      //debugger
+      //insideBar()
     },
     onCameraExit: async () => {
       await lowerVolume()
@@ -169,10 +170,11 @@ utils.addOneTimeTrigger(
 )
 
 export function insideBar() {
+  log("insideBar","ENTRY")
   if (!areNPCsAdded) {
     handleQuests()
     addBarNPCs()
-  }
+  } 
 
   placeJukeBox()
   addMicFeedback()

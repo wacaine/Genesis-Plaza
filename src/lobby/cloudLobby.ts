@@ -13,6 +13,7 @@ import {
 import { lobbyCenter, lobbyHeight, lobbyRadius } from './resources/globals'
 import * as resource from './resources/resources'
 import * as sfx from './resources/sounds'
+import { insideBar } from 'src/game'
 
 const portalControl = new TeleportController()
 
@@ -142,3 +143,6 @@ let classicsMenu = createClassicsVerticalMenu({
   scale: new Vector3(menuScale, menuScale, menuScale),
 })
 fillClassicsMenu(classicsMenu)
+
+//TEMP TESING LOADING THE BAR TOO
+insideBar()
